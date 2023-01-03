@@ -1,4 +1,4 @@
-python3 $PYFILE
+#python3 $PYFILE
 python 0x08-python-moreclasses for Genesis Chukwuma
 
 Codes contain task solution to task 8 in python to help practice object-oriented programming in Python.
