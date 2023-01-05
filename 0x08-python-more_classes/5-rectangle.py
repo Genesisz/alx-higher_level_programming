@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Defines a Rectangle class."""
 
-
 class Rectangle:
     """Represent a rectangle."""
 
@@ -30,7 +29,7 @@ class Rectangle:
 
     @property
     def height(self):
-       """Get/set the height of the Rectangle."""
+        """Get/set the height of the Rectangle."""
         return self.__height
 
     @height.setter
@@ -72,6 +71,6 @@ class Rectangle:
         rect += ", " + str(self.__height) + ")"
         return (rect)
 
-    def __del__(self):
+   def __del__(self):
         """Print a message for every deletion of a Rectangle."""
         print("Bye rectangle...")
