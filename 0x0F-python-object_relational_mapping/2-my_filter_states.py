@@ -1,19 +1,21 @@
 #!/usr/bin/python3
-"""filter states from users input on the command arg"""
+"""
+script that takes an argument and matches name with the said
+argument in states.
+takes 4 arguments username, passwd, db name and state name searched
+"""
 
-import sys
-from db_conn import connect_db
-
-_args = sys.argv
 
 if __name__ == "__main__":
-    sql_query = """SELECT * FROM states WHERE name = %s ORDER BY id ASC"""
-    user_input = _args[-1:]
-    db = connect_db(_args[1:4])
+    from sys import argv
+    import MySQLdb
+    db = MySQLdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
     cur = db.cursor()
-    cur.execute(sql_query, (user_input,))
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    cur.execute("SELECT * FROM states WHERE name = '{}'\
+    ORDER BY states.id ASC".format(argv[4]))
+    lst = cur.fetchall()
+    for r in lst:
+        if r[1] == argv[4]:
+            print(r)
     cur.close()
     db.close()
